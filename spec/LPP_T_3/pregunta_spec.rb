@@ -14,6 +14,10 @@ module LPP_T_3
 		         expect(@q.text)=='2+2='
 		         expect(@q.right)==4
 	             end
+		     it "debe tener 3 componentes" do
+			expect {LPP_T_3::Pregunta.new(:text => '5*8=?')}.to raise_error(ArgumentError)
+			
+		     end
 	
 	        end
 	    end
