@@ -1,31 +1,57 @@
+Práctica de laboratorio #5: RSpec
+=======================
+
+## Descripción del equipo
+
+  * Nombre del equipo: **LPP_T_3**
+  * Miembros del equipo:
+    * Ayose Jesús Castillo Barroso
+    * César Ravelo Martínez
+
+## Descripción de la práctica
+
+  La práctica 5 propone implementar una gema Ruby para representar preguntas simples con pruebas RSpec para seguir el modelo TDD y su correcto funcionamiento. La estructura del repositorio es la siguiente:
+
+  * [Documentación](doc/)
+    * [Documentación de la Práctica](doc/prct5.pdf)
+    * [Resultados de las Pruebas](doc/pruebas/index.html)
+  * [Librerías](lib/)
+    * [Gema Ruby Preguntas Simples](lib/LPP_T_3/pregunta/base.rb)
+  * [RSpec](spec/)
+  * [Fichero Rake con las tareas necesarias definidas](Rakefile)
+  * Fichero readme con esta documentación
+
+
+
+
 # LPPT3::Pregunta
 
-TODO: Write a gem description
+Gema Ruby para representar preguntas de selección simple de Exámenes
 
-## Installation
+## Instalación
 
-Add this line to your application's Gemfile:
+
+Añadir esta linea al Gemfile de su aplicación
+
 
 ```ruby
 gem 'LPP_T_3-pregunta'
 ```
 
-And then execute:
+y ejecutar:
 
     $ bundle
 
-Or install it yourself as:
+O instálelo usted mismo:
 
     $ gem install LPP_T_3-pregunta
 
-## Usage
+## Uso
 
-TODO: Write usage instructions here
+Para instanciar un objeto Pregunta basta con indicarle:
 
-## Contributing
+* Una pregunta
+* Una respuesta correcta
+* Un conjunto de respuestas erróneas
 
-1. Fork it ( https://github.com/[my-github-username]/LPP_T_3-pregunta/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+Puede mostrar por pantalla la pregunta invocando el método [:pantalla](lib/LPP_T_3/pregunta/base.rb).
