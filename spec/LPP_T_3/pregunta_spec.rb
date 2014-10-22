@@ -1,4 +1,4 @@
-require 'LPP_T_3/pregunta.rb'
+require 'LPP_T_3/pregunta'
 
 module LPP_T_3
 	class Pregunta

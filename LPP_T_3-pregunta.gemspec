@@ -5,7 +5,7 @@ require 'LPP_T_3/pregunta/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "LPP_T_3-pregunta"
-  spec.version       = LPPT3::Pregunta::VERSION
+  spec.version       = LPP_T_3::Pregunta::VERSION
   spec.authors       = ["César Ravelo Martínez", "Ayose Castillo Barroso"]
   spec.email         = ["alu0100511314@ull.edu.es", "alu0100600810@ull.edu.es"]
   spec.summary       = %q{Gema para la implementación de preguntas de respuesta de selección simple}

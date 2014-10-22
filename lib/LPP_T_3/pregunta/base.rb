@@ -1,7 +1,13 @@
 
-module LPPT3
+module LPP_T_3
   class Pregunta
-    # Your code goes here...
+    attr_accessor :text, :right, :distractors
+    
+    def initialize(args)
+      @text = args[:text]
+      @right = args[:right]
+      @distractors = args[:distractors]
+    end
   end
 end
 
