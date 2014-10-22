@@ -20,6 +20,20 @@ module LPP_T_3
 		     end
 	
 	        end
+
+		context "Debe poder:" do
+		     it"mostrar pregunta" do
+			expect(@q).to respond_to :text
+		     end
+		     it"mostrar respuesta correcta" do
+                        expect(@q).to respond_to :right
+                     end
+	             it"mostrar opciones incorrectas" do
+                        expect(@q).to respond_to :distractors
+                     end
+	        end
+		
+
 	    end
 
 	end
