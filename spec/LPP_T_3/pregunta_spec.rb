@@ -31,9 +31,13 @@ module LPP_T_3
 	             it"mostrar opciones incorrectas" do
                         expect(@q).to respond_to :distractors
                      end
+		     it"mostrar por pantalla" do
+			expect(@q).to respond_to :pantalla
+		     end
+			
 	        end
 		
-
+	
 	    end
 
 	end
