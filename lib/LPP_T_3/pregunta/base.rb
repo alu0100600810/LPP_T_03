@@ -12,17 +12,17 @@ module LPP_T_3
       @distractors = args[:distractors]
     end
     
-    def pantalla
-      puts "#{@text}"
+    def to_s
+      "#{@text}"
       opciones = @distractors + [@right]
       opciones = opciones.shuffle     
-      s = ''
+      s = "#{@text}\n"
       i = 0
       opciones.each do |o|
        s += "#{i}) #{o}\n"
        i += 1
       end
-      puts s
+      s
     end
   end
 end

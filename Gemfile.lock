@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    LPP_T_3-pregunta (0.0.1)
+    LPP_T_3-pregunta (1.0.0)
 
 GEM
   remote: https://rubygems.org/

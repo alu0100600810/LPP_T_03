@@ -32,7 +32,7 @@ module LPP_T_3
                         expect(@q).to respond_to :distractors
                      end
 		     it"mostrar por pantalla" do
-			expect(@q).to respond_to :pantalla
+			expect(@q).to respond_to :to_s
 		     end
 			
 	        end
