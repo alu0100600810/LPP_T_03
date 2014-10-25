@@ -33,6 +33,9 @@ class Pregunta
       it "mostrar por pantalla" do
         expect(@q).to respond_to :to_s
       end
+      it "mostrarse correctamente" do
+        expect(@q.to_s).to match(/(\d|\w)+\n(\d\)\s+(\w|\d)+\n)+/)
+      end
 			
     end		
 	
