@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'LPP_T_3/pregunta/version'
+require 'pregunta/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "LPP_T_3-pregunta"
-  spec.version       = LPP_T_3::Pregunta::VERSION
+  spec.name          = "pregunta"
+  spec.version       = Pregunta::VERSION
   spec.authors       = ["César Ravelo Martínez", "Ayose Castillo Barroso"]
   spec.email         = ["alu0100511314@ull.edu.es", "alu0100600810@ull.edu.es"]
   spec.summary       = %q{Gema para la implementación de preguntas de respuesta de selección simple}
