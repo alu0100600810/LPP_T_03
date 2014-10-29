@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'pregunta/version'
+require 'examen/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "pregunta"
-  spec.version       = Pregunta::VERSION
+  spec.name          = "examen"
+  spec.version       = Examen::VERSION
   spec.authors       = ["César Ravelo Martínez", "Ayose Castillo Barroso"]
   spec.email         = ["alu0100511314@ull.edu.es", "alu0100600810@ull.edu.es"]
   spec.summary       = %q{Gema para la implementación de preguntas de respuesta de selección simple}

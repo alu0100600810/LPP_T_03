@@ -1,9 +1,9 @@
-require 'pregunta'
+require 'examen'
 
 
-class Pregunta
+class Examen
 
-  describe Pregunta do
+  describe Examen do
 
     before :each do
       @q = Pregunta.new(:text => '2+2=', :right => 4 , :distractors => [9,3,5])

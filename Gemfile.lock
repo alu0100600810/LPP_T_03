@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pregunta (1.0.0)
+    examen (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -26,6 +26,6 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.7)
-  pregunta!
+  examen!
   rake (~> 10.0)
   rspec
