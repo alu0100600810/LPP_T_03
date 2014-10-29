@@ -16,7 +16,7 @@ Práctica de laboratorio #5: RSpec
     * [Documentación de la Práctica](doc/prct5.pdf)
     * [Resultados de las Pruebas](doc/pruebas/index.html)
   * [Librerías](lib/)
-    * [Gema Ruby Preguntas Simples](lib/pregunta/base.rb)
+    * [Gema Ruby Preguntas Simples](lib/examen/base.rb)
   * [RSpec](spec/)
   * [Fichero Rake con las tareas necesarias definidas](Rakefile)
   * Fichero readme con esta documentación
@@ -35,7 +35,7 @@ Añadir esta linea al Gemfile de su aplicación
 
 
 ```ruby
-gem 'pregunta'
+gem 'examen'
 ```
 
 y ejecutar:
@@ -44,7 +44,7 @@ y ejecutar:
 
 O instálelo usted mismo:
 
-    $ gem install pregunta
+    $ gem install examen
 
 ## Uso
 
@@ -54,4 +54,4 @@ Para instanciar un objeto Pregunta basta con indicarle:
 * Una respuesta correcta
 * Un conjunto de respuestas erróneas
 
-Puede mostrar por pantalla la pregunta invocando el método [:to_s](lib/pregunta/base.rb).
+Puede mostrar por pantalla la pregunta invocando el método [:to_s](lib/examen/base.rb).
