@@ -71,7 +71,16 @@ class Examen
 
       end
 
+      it "Debe existir una lista con su cabeza" do
 
+	 expect(@e).to respond_to :cabeza
+
+      end
+
+      it "Debe inicializarse con una pregunta" do
+        expect {Examen.new()}.to raise_error(ArgumentError)
+        expect {Examen.new(Examen::Nodo.new(@q, nil))}.to raise_error(TypeError)
+      end
     end 	
   end  		
 end
