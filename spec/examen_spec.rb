@@ -42,6 +42,7 @@ class Examen
     before :each do
       @q = Pregunta.new(:text => '2+2=', :right => 4 , :distractors => [9,3,5])
       @n = Examen::Nodo.new(@q, nil)
+      @e = Examen.new(@q)
     end
 
     context "Nodo" do     
@@ -49,7 +50,17 @@ class Examen
          expect(@n.value)==@p
          expect(@n.next)==nil
       end
-    end	
+    end
+    context "List" do
+      it "Se puede extraer el primer elemento de la lista" do
+
+         expect(@e).to respond_to :pop
+	 expect(@e.pop)== @q
+
+      end
+
+
+    end 	
 
   end  		
 end
