@@ -1,13 +1,10 @@
 require 'examen'
 
-
-class Examen
-
+class Pregunta
   describe Examen do
 
     before :each do
-      @q = Pregunta.new(:text => '2+2=', :right => 4 , :distractors => [9,3,5])
-      @n = Nodo.new(@q, nil)
+      @q = Pregunta.new(:text => '2+2=', :right => 4 , :distractors => [9,3,5])      
     end
 
     context "Pregunta" do
@@ -34,16 +31,25 @@ class Examen
         expect(@q.to_s).to match(/(\d|\w)+\n(\d\)\s+(\w|\d)+\n)+/)
       end
 	
+    end    	
+  end	
+end
+
+
+class Examen
+
+  describe Examen do
+    before :each do
+      @q = Pregunta.new(:text => '2+2=', :right => 4 , :distractors => [9,3,5])
+      @n = Examen::Nodo.new(@q, nil)
     end
-    
-    context "Nodo" do
-      
-      it "Debe existir un nodo de la lista con sus datos y su siguiente" do
-         
+
+    context "Nodo" do     
+      it "Debe existir un nodo de la lista con sus datos y su siguiente" do         
          expect(@n.value)==@p
          expect(@n.next)==nil
-
       end
-    end		
-  end			
+    end	
+
+  end  		
 end
