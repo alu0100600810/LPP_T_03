@@ -53,28 +53,24 @@ class Examen
     end
     context "List" do
       it "Se puede extraer el primer elemento de la lista" do
-
          expect(@e).to respond_to :pop
 	 expect(@e.pop)== @q
 
       end
       it "Se puede insertar un elemento" do 
-
          expect(@e).to respond_to :<<
+         expect {@e << @n}.to raise_error(TypeError)
+         expect {@e << @e}.to raise_error(TypeError)
          expect {@e << @q}==@q
 
       end
       it "Se puede insertar varios elementos" do
-
          expect(@e).to respond_to :push_back
          expect(@e.push_back(@q, @q)).to be_instance_of(Array)
-
       end
 
       it "Debe existir una lista con su cabeza" do
-
 	 expect(@e).to respond_to :cabeza
-
       end
 
       it "Debe inicializarse con una pregunta" do
@@ -85,23 +81,20 @@ class Examen
       it "Debe mostrarse correctamente" do
         text = "¿Cuál es la salida del siguiente código Ruby?\nclass Xyz\n\sdef pots\n\s\s@nice\n\send\nend\n\nxyz = Xyz.new\np xyz.pots"
         examen = Examen.new(Pregunta.new(:text => text, :right =>"nil", :distractors => ["#<Xyz:0xa000208>","nil","0","Ninguna de las anteriores"]))
+
         text = "La siguiente definición de un hash en Ruby es válida:\nhash_raro = {\n\s[1, 2, 3] => Object.new(),\nHash.new => :toto\n}"
-        examen << Examen.new(Pregunta.new(:text => text, :right =>"Falso", :distractors => ["Cierto"]))
+        examen << Pregunta.new(:text => text, :right =>"Falso", :distractors => ["Cierto"])
 
         text = %Q{¿Cuál es la salida del siguiente código Ruby?\nclass Array\n\sdef say_hi\n\s\s"HEY!"\n\send\nend\n p [1, "bob"].say_hi}
-        examen << Examen.new(Pregunta.new(:text => text, :right =>"HEY!", :distractors => ["1","bob","Ninguna de las anteriores"]))
+        examen << Pregunta.new(:text => text, :right =>"HEY!", :distractors => ["1","bob","Ninguna de las anteriores"])
    
         text = "¿Cuál es el tipo del objeto en el siguiente código Ruby?\nclass Objeto\nend"
-        examen << Examen.new(Pregunta.new(:text => text, :right =>"Una instancia de la clase Class", :distractors => ["Una Constante", "Un Objeto", "Ninguna de las anteriores"]))
+        examen << Pregunta.new(:text => text, :right =>"Una instancia de la clase Class", :distractors => ["Una Constante", "Un Objeto", "Ninguna de las anteriores"])
    
         text = "Es apropiado que una clase Tablero herede de una clase Juego"
-        examen << Examen.new(Pregunta.new(:text => text, :right =>"Falso", :distractors => ["Cierto"]))
-
+        examen << Pregunta.new(:text => text, :right =>"Falso", :distractors => ["Cierto"])
         
         expect(examen.to_s).to match(/(\d+\.-\)(.|\s|\n)+)+/)
-      
-
-
       end
 
     end 	

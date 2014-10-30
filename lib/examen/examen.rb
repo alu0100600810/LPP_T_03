@@ -21,7 +21,8 @@ class Examen
     head.value
   end
 
-  def <<(p)
+  def <<(p)    
+     raise TypeError, "Esperada pregunta para inserción" unless p.instance_of? (Pregunta) 
      @cola.next = Nodo.new(p, nil)
      @cola = @cola.next    
      @total += 1
@@ -35,6 +36,18 @@ class Examen
       @total += 1
     end
     preguntas
+  end
+
+   def to_s
+    aux = @cabeza
+    s = ''
+    i = 1
+    while (aux != nil) do
+      s += "#{i}.-) #{aux.value.to_s}\n"      
+      aux = aux.next
+      i += 1
+    end
+    s
   end
 
 end
