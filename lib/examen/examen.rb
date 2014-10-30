@@ -18,4 +18,12 @@ class Examen
     @total -= 1
     head.value
   end
+
+  def <<(p)
+     @cola.next = Nodo.new(p, nil)
+     @cola = @cola.next    
+     @total += 1
+     @cola.value
+  end
+
 end
