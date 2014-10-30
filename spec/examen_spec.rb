@@ -47,7 +47,7 @@ class Examen
 
     context "Nodo" do     
       it "Debe existir un nodo de la lista con sus datos y su siguiente" do         
-         expect(@n.value)==@p
+         expect(@n.value)==@q
          expect(@n.next)==nil
       end
     end
@@ -58,9 +58,13 @@ class Examen
 	 expect(@e.pop)== @q
 
       end
+      it "Se puede insertar un elelmento" do 
+
+         expect(@e).to respond_to :<<
+         expect {@e << @q}==@q
+      end
 
 
     end 	
-
   end  		
 end
