@@ -81,6 +81,29 @@ class Examen
         expect {Examen.new()}.to raise_error(ArgumentError)
         expect {Examen.new(Examen::Nodo.new(@q, nil))}.to raise_error(TypeError)
       end
+
+      it "Debe mostrarse correctamente" do
+        text = "¿Cuál es la salida del siguiente código Ruby?\nclass Xyz\n\sdef pots\n\s\s@nice\n\send\nend\n\nxyz = Xyz.new\np xyz.pots"
+        examen = Examen.new(Pregunta.new(:text => text, :right =>"nil", :distractors => ["#<Xyz:0xa000208>","nil","0","Ninguna de las anteriores"]))
+        text = "La siguiente definición de un hash en Ruby es válida:\nhash_raro = {\n\s[1, 2, 3] => Object.new(),\nHash.new => :toto\n}"
+        examen << Examen.new(Pregunta.new(:text => text, :right =>"Falso", :distractors => ["Cierto"]))
+
+        text = %Q{¿Cuál es la salida del siguiente código Ruby?\nclass Array\n\sdef say_hi\n\s\s"HEY!"\n\send\nend\n p [1, "bob"].say_hi}
+        examen << Examen.new(Pregunta.new(:text => text, :right =>"HEY!", :distractors => ["1","bob","Ninguna de las anteriores"]))
+   
+        text = "¿Cuál es el tipo del objeto en el siguiente código Ruby?\nclass Objeto\nend"
+        examen << Examen.new(Pregunta.new(:text => text, :right =>"Una instancia de la clase Class", :distractors => ["Una Constante", "Un Objeto", "Ninguna de las anteriores"]))
+   
+        text = "Es apropiado que una clase Tablero herede de una clase Juego"
+        examen << Examen.new(Pregunta.new(:text => text, :right =>"Falso", :distractors => ["Cierto"]))
+
+        
+        expect(examen.to_s).to match(/(\d+\.-\)(.|\s|\n)+)+/)
+      
+
+
+      end
+
     end 	
   end  		
 end
