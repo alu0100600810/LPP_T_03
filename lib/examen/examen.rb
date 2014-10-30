@@ -1,3 +1,4 @@
+# coding: utf-8
 require "pregunta"
 
 class Examen
@@ -6,6 +7,7 @@ class Examen
   Nodo = Struct.new :value, :next
 
   def initialize(p)
+    raise TypeError, "Esperada pregunta como parámetro de entrada" unless p.instance_of? (Pregunta)
     @cabeza = Nodo.new(p, nil)
     @cola = @cabeza
     @total = 1
