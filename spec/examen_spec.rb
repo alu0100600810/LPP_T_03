@@ -58,10 +58,17 @@ class Examen
 	 expect(@e.pop)== @q
 
       end
-      it "Se puede insertar un elelmento" do 
+      it "Se puede insertar un elemento" do 
 
          expect(@e).to respond_to :<<
          expect {@e << @q}==@q
+
+      end
+      it "Se puede insertar varios elementos" do
+
+         expect(@e).to respond_to :push_back
+         expect {@e.push_back @q, @q}.to be_instance_of(Array)
+
       end
 
 
