@@ -67,7 +67,7 @@ class Examen
       it "Se puede insertar varios elementos" do
 
          expect(@e).to respond_to :push_back
-         expect {@e.push_back @q, @q}.to be_instance_of(Array)
+         expect(@e.push_back(@q, @q)).to be_instance_of(Array)
 
       end
 

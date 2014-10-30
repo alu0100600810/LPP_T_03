@@ -26,4 +26,13 @@ class Examen
      @cola.value
   end
 
+  def push_back(*preguntas)
+    preguntas.each do |p|
+      @cola.next = Nodo.new(p, nil)
+      @cola = @cola.next
+      @total += 1
+    end
+    preguntas
+  end
+
 end
