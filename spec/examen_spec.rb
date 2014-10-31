@@ -41,7 +41,7 @@ class Examen
   describe Examen do
     before :each do
       @q = Pregunta.new(:text => '2+2=', :right => 4 , :distractors => [9,3,5])
-      @n = Examen::Nodo.new(@q, nil)
+      @n = Nodo.new(@q, nil)
       @e = Examen.new(@q)
     end
 
@@ -75,7 +75,7 @@ class Examen
 
       it "Debe inicializarse con una pregunta" do
         expect {Examen.new()}.to raise_error(ArgumentError)
-        expect {Examen.new(Examen::Nodo.new(@q, nil))}.to raise_error(TypeError)
+        expect {Examen.new(Nodo.new(@q, nil))}.to raise_error(TypeError)
       end
 
       it "Debe mostrarse correctamente" do

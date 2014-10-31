@@ -1,4 +1,4 @@
-Práctica de laboratorio #5: RSpec
+Desarrollo de gema Ruby: Gestión de Exámenes
 =======================
 
 ## Descripción del equipo

@@ -1,10 +1,10 @@
 # coding: utf-8
 require "pregunta"
+ 
+Nodo = Struct.new :value, :next
 
 class Examen
   attr_accessor :cabeza, :cola, :total
-
-  Nodo = Struct.new :value, :next
 
   def initialize(p)
     raise TypeError, "Esperada pregunta como parámetro de entrada" unless p.instance_of? (Pregunta)
@@ -43,7 +43,7 @@ class Examen
     s = ''
     i = 1
     while (aux != nil) do
-      s += "#{i}.-) #{aux.value.to_s}\n"      
+      s += "#{i}.-) #{aux.value}\n"      
       aux = aux.next
       i += 1
     end
