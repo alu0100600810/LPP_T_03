@@ -1,29 +1,38 @@
 # coding: utf-8
 require "pregunta_verdadero_falso"
  
-Nodo = Struct.new :value, :next
+Nodo = Struct.new :value, :next, :prev
 
 class Examen
   attr_accessor :cabeza, :cola, :total
 
   def initialize(p)
     raise TypeError, "Esperada pregunta como parámetro de entrada" unless p.is_a? (Pregunta)
-    @cabeza = Nodo.new(p, nil)
+    @cabeza = Nodo.new(p, nil, nil)
     @cola = @cabeza
     @total = 1
   end
 
-  def pop
+   def pop
+    raise IndexError, "Lista vacía, imposible hacer pop" unless @total > 0
+    head = nil
+    if @cola == @cabeza
+      head = @cabeza
+      @cola = @cabeza = nil
+      head.next = head.prev = nil
+    else
     head = @cabeza
     @cabeza = @cabeza.next
+    @cabeza.prev = nil
     head.next = nil
+    end
     @total -= 1
     head.value
   end
 
   def <<(p)    
      raise TypeError, "Esperada pregunta para inserción" unless p.is_a? (Pregunta) 
-     @cola.next = Nodo.new(p, nil)
+     @cola.next = Nodo.new(p, nil, @cola)
      @cola = @cola.next    
      @total += 1
      @cola.value
@@ -31,7 +40,7 @@ class Examen
 
   def push_back(*preguntas)
     preguntas.each do |p|
-      @cola.next = Nodo.new(p, nil)
+      @cola.next = Nodo.new(p, nil, @cola)
       @cola = @cola.next
       @total += 1
     end
