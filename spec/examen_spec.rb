@@ -85,7 +85,7 @@ class Examen
         examen = Examen.new(Pregunta.new(:text => text, :right =>"nil", :distractors => ["#<Xyz:0xa000208>","0","Ninguna de las anteriores"]))
 
         text = "La siguiente definición de un hash en Ruby es válida:\nhash_raro = {\n\s[1, 2, 3] => Object.new(),\nHash.new => :toto\n}"
-        examen << Pregunta.new(:text => text, :right =>"Falso", :distractors => ["Cierto"])
+        examen << PreguntaVerdaderoFalso.new(:text => text, :right => false)
 
         text = %Q{¿Cuál es la salida del siguiente código Ruby?\nclass Array\n\sdef say_hi\n\s\s"HEY!"\n\send\nend\n p [1, "bob"].say_hi}
         examen << Pregunta.new(:text => text, :right =>"HEY!", :distractors => ["1","bob","Ninguna de las anteriores"])
@@ -94,7 +94,7 @@ class Examen
         examen << Pregunta.new(:text => text, :right =>"Una instancia de la clase Class", :distractors => ["Una Constante", "Un Objeto", "Ninguna de las anteriores"])
    
         text = "Es apropiado que una clase Tablero herede de una clase Juego"
-        examen << Pregunta.new(:text => text, :right =>"Falso", :distractors => ["Cierto"])
+        examen << PreguntaVerdaderoFalso.new(:text => text, :right => false)
 	        
         expect(examen.to_s).to match(/(\d+\.-\)(.|\s|\n)+)+/)
       end
