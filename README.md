@@ -10,15 +10,16 @@ Desarrollo de gema Ruby: Gestión de Exámenes
 
 ## Descripción de la práctica
 
-  La práctica 6 propone implementar una gema Ruby para representar exámenes de preguntas simples con pruebas RSpec para seguir el modelo TDD y su correcto funcionamiento. La estructura del repositorio es la siguiente:
+  La práctica propone implementar una gema Ruby para representar exámenes de preguntas simples con pruebas RSpec para seguir el modelo TDD y su correcto funcionamiento. La estructura del repositorio es la siguiente:
 
   * [Documentación](doc/)
-    * [Documentación de la Práctica](doc/prct5.pdf)
+    * [Documentación de la Práctica](doc/)
     * [Resultados de las Pruebas](doc/pruebas/index.html)
   * [Librerías](lib/)
     * [Gema Ruby](lib/examen/base.rb)
     * [Código fuente de la clase Examen](lib/examen/examen.rb)
     * [Código fuente de la clase Pregunta](lib/examen/pregunta.rb)
+    * [Códido fuente de la clase Pregunta Verdadero y Falso](lib/examen/pregunta_verdadero_falso.rb)
   * [RSpec](spec/)
   * [Fichero Rake con las tareas necesarias definidas](Rakefile)
   * Fichero readme con esta documentación
