@@ -101,3 +101,41 @@ class Examen
     end 	
   end  		
 end
+
+
+class PreguntaVerdaderoFalso
+
+  describe Examen do
+	before :each do
+      @q = PreguntaVerdaderoFalso.new(:text => '¿2+2=4?', :right => true)
+    end
+
+   context "Pregunta Verdadero y Falso" do
+      it "Debe tener texto y alguna pregunta" do
+        expect(@q.text)=='¿2+2=4?'
+        expect(@q.right)=='Cierto'
+      end
+      it "debe tener 2 componentes" do
+        expect {PreguntaVerdaderoFalso.new(:text => '5*8=?')}.to raise_error(ArgumentError)
+      end
+      it "mostrar pregunta" do
+        expect(@q).to respond_to :text
+      end
+      it "mostrar respuesta correcta" do
+        expect(@q).to respond_to :right
+      end
+      it "mostrar opciones incorrectas" do
+        expect(@q).to respond_to :distractors
+      end
+      it "mostrar por pantalla" do
+        expect(@q).to respond_to :to_s
+      end
+      it "mostrarse correctamente" do
+        expect(@q.to_s).to match(/(\d|\w)+\n(\d\)\s+(\w|\d)+\n)+/)
+      end
+
+    end
+
+
+  end
+end
