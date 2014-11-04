@@ -42,14 +42,15 @@ class Examen
   describe Examen do
     before :each do
       @q = Pregunta.new(:text => '2+2=', :right => 4 , :distractors => [9,3,5])
-      @n = Nodo.new(@q, nil)
+      @n = Nodo.new(@q, nil, nil)
       @e = Examen.new(@q)
     end
 
     context "Nodo" do     
-      it "Debe existir un nodo de la lista con sus datos y su siguiente" do         
+      it "Debe existir un nodo de la lista con sus datos con su siguiente y su anterior" do         
          expect(@n.value)==@q
          expect(@n.next)==nil
+         expect(@n.prev)==nil
       end
     end
     context "List" do
@@ -76,7 +77,7 @@ class Examen
 
       it "Debe inicializarse con una pregunta" do
         expect {Examen.new()}.to raise_error(ArgumentError)
-        expect {Examen.new(Nodo.new(@q, nil))}.to raise_error(TypeError)
+        expect {Examen.new(Nodo.new(@q, nil, nil))}.to raise_error(TypeError)
       end
 
       it "Debe mostrarse correctamente" do
