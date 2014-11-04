@@ -1,5 +1,5 @@
 # coding: utf-8
-require "pregunta"
+require "pregunta_verdadero_falso"
  
 Nodo = Struct.new :value, :next
 
@@ -7,7 +7,7 @@ class Examen
   attr_accessor :cabeza, :cola, :total
 
   def initialize(p)
-    raise TypeError, "Esperada pregunta como parámetro de entrada" unless p.instance_of? (Pregunta)
+    raise TypeError, "Esperada pregunta como parámetro de entrada" unless p.is_a? (Pregunta)
     @cabeza = Nodo.new(p, nil)
     @cola = @cabeza
     @total = 1
@@ -22,7 +22,7 @@ class Examen
   end
 
   def <<(p)    
-     raise TypeError, "Esperada pregunta para inserción" unless p.instance_of? (Pregunta) 
+     raise TypeError, "Esperada pregunta para inserción" unless p.is_a? (Pregunta) 
      @cola.next = Nodo.new(p, nil)
      @cola = @cola.next    
      @total += 1
