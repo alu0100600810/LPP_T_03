@@ -120,11 +120,14 @@ class PreguntaVerdaderoFalso
       it "Debe heredar de Pregunta" do
         expect(@q).to be_a Pregunta
       end
+<<<<<<< HEAD
 
       it "Debe heredar de Pregunta" do
         expect(@q.instance_of?Pregunta).to eq(false)
       end
       
+=======
+>>>>>>> documentacion
       it "debe tener 2 componentes" do
         expect {PreguntaVerdaderoFalso.new(:text => '5*8=?')}.to raise_error(ArgumentError)
       end
