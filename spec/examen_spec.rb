@@ -110,7 +110,11 @@ class Examen
       it "Debe incluir el modulo enumerable" do
         expect(@e).to be_kind_of Enumerable
       end
-
+      it "Debe ordenar correctamente" do
+       p = PreguntaVerdaderoFalso.new(:text => "¿2+2=4?", :right => true, :difficulty => 0)
+       @e << p
+       expect(@e.sort).to eq([p, @q])
+      end
     end 	
   end  		
 end
