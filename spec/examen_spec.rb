@@ -28,6 +28,9 @@ class Pregunta
       it "mostrar por pantalla" do
         expect(@q).to respond_to :to_s
       end
+      it "Debe indicar su dificultad" do
+        expect(@q).to respond_to :difficulty
+      end
       it "mostrarse correctamente" do
         expect(@q.to_s).to match(/(\d|\w)+\n(\d\)\s+(\w|\d)+\n)+/)
       end
@@ -136,6 +139,9 @@ class PreguntaVerdaderoFalso
       end
       it "mostrar opciones incorrectas" do
         expect(@q).to respond_to :distractors
+      end
+      it "Debe indicar su dificultad" do
+        expect(@q).to respond_to :difficulty
       end
       it "mostrar por pantalla" do
         expect(@q).to respond_to :to_s
