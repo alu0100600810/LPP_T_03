@@ -1,6 +1,6 @@
 
 class Pregunta
-  attr_accessor :text, :right, :distractors
+  attr_accessor :text, :right, :distractors, :difficulty
     
   def initialize(args)
     raise ArgumentError, "Esperada pregunta (:text)" unless args[:text]
@@ -9,6 +9,7 @@ class Pregunta
     @text = args[:text]
     @right = args[:right]
     @distractors = args[:distractors]
+    @difficulty = (args.key?:difficulty)?args[:difficulty]:1
   end
    
   def to_s
