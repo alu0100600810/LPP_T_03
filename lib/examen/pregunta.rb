@@ -1,4 +1,4 @@
-
+# encoding: utf-8
 class Pregunta
   attr_accessor :text, :right, :distractors, :difficulty
 
