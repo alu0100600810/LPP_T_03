@@ -107,6 +107,9 @@ class Examen
 	        
         expect(examen.to_s).to match(/(\d+\.-\)(.|\s|\n)+)+/)
       end
+      it "Debe incluir el modulo enumerable" do
+        expect(@e).to be_kind_of Enumerable
+      end
 
     end 	
   end  		
