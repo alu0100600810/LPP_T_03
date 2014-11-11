@@ -26,4 +26,8 @@ class Pregunta
     end
     s
   end
+
+  def <=>(p)
+    @difficulty <=> p.difficulty
+  end
 end
