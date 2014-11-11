@@ -37,7 +37,10 @@ class Pregunta
       it "Debe incluir el modulo comparable" do
         expect(@q).to be_kind_of Comparable
       end
-	
+      it "Debe comparase con otra pregunta correctamente" do
+        p = Pregunta.new(:text => '2+2=', :right => 4, :distractors => [0,5,9], :difficulty => 3)
+        expect(@q > p).to eq(false)
+      end	
     end    	
   end	
 end
@@ -155,8 +158,10 @@ class PreguntaVerdaderoFalso
       it "Debe incluir el modulo comparable" do
         expect(@q).to be_kind_of Comparable
       end
-
-
+      it "Debe comparase con otra pregunta correctamente" do
+        p = PreguntaVerdaderoFalso.new(:text => '¿2+2=4?', :right => true, :difficulty => 3)
+        expect(@q > p).to eq(false)
+      end
     end
 
 
