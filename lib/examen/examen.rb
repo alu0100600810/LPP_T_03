@@ -60,5 +60,13 @@ class Examen
     end
     s
   end
+  
+  def each
+    aux = @cabeza
+    while (aux != nil) do
+      yield aux.value
+      aux = aux.next
+    end
+  end
 
 end

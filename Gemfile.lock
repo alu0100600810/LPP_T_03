@@ -65,5 +65,5 @@ DEPENDENCIES
   guard
   guard-bundler
   guard-rspec
-  rake (~> 10.0)
+  rake
   rspec
