@@ -5,6 +5,8 @@ Nodo = Struct.new :value, :next, :prev
 
 class Examen
   attr_accessor :cabeza, :cola, :total
+  
+  include Enumerable
 
   def initialize(p)
     raise TypeError, "Esperada pregunta como parámetro de entrada" unless p.is_a? (Pregunta)
