@@ -1,7 +1,9 @@
 
 class Pregunta
   attr_accessor :text, :right, :distractors, :difficulty
-    
+
+  include Comparable  
+  
   def initialize(args)
     raise ArgumentError, "Esperada pregunta (:text)" unless args[:text]
     raise ArgumentError, "Esperada respuesta correcta (:right)" unless args[:right]
