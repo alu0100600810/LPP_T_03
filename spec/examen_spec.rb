@@ -39,9 +39,14 @@ class Pregunta
         expect(@q).to be_kind_of Comparable
       end
       it "Debe comparase con otra pregunta correctamente" do
-        p = Pregunta.new(:text => '2+2=', :right => 4, :distractors => [0,5,9], :difficulty => 3)
+        p = Pregunta.new(:text => '1+3=', :right => 4, :distractors => [0,5,9], :difficulty => 3)
         expect(@q > p).to eq(false)
-      end	
+        expect(@q < p).to eq(true)
+        expect(@q == p).to eq(false)
+        expect(@q <= p).to eq(true)
+        expect(@q >= p).to eq(false)
+      end
+    	
     end    	
   end	
 end
@@ -116,6 +121,31 @@ class Examen
        @e << p
        expect(@e.sort).to eq([p, @q])
       end
+      it "Debe indicar el maximo" do
+       p = PreguntaVerdaderoFalso.new(:text => "¿2+2=4?", :right => true, :difficulty => 0)
+       @e << p
+       expect(@e.max).to eq(@q)
+      end
+      it "Debe indicar el minimo" do
+       p = PreguntaVerdaderoFalso.new(:text => "¿2+2=4?", :right => true, :difficulty => 0)
+       @e << p
+       expect(@e.min).to eq(p)
+      end
+      it "Debe saber usar all?" do
+       p = PreguntaVerdaderoFalso.new(:text => "¿2+2=4?", :right => true, :difficulty => 0)
+       @e << p
+       expect(@e.all?{|x| x.difficulty > 0}).to eq(false)
+      end
+      it "Debe saber contar" do
+       p = PreguntaVerdaderoFalso.new(:text => "¿2+2=4?", :right => true, :difficulty => 0)
+       @e << p
+       expect(@e.count(p))==1
+      end
+      it "Debe encontrar correctamente" do
+       p = PreguntaVerdaderoFalso.new(:text => "¿2+2=4?", :right => true, :difficulty => 0)
+       @e << p
+       expect(@e.find{|x| x.difficulty == 1}).to eq(@q)
+      end
     end 	
   end  		
 end
@@ -167,8 +197,12 @@ class PreguntaVerdaderoFalso
         expect(@q).to be_kind_of Comparable
       end
       it "Debe comparase con otra pregunta correctamente" do
-        p = PreguntaVerdaderoFalso.new(:text => '¿2+2=4?', :right => true, :difficulty => 3)
+        p = PreguntaVerdaderoFalso.new(:text => '¿1+3=4?', :right => true, :difficulty => 3)
         expect(@q > p).to eq(false)
+        expect(@q < p).to eq(true)
+        expect(@q == p).to eq(false)
+        expect(@q <= p).to eq(true)
+        expect(@q >= p).to eq(false)
       end
     end
 
