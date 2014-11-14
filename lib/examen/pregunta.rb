@@ -30,4 +30,8 @@ class Pregunta
   def <=>(p)
     @difficulty <=> p.difficulty
   end
+
+  def ==(p)
+    @text.eql?p.text
+  end
 end
