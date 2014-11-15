@@ -15,13 +15,13 @@ class Pregunta
   end
    
   def to_s
-    "#{@text}"
     opciones = @distractors + [@right]
     opciones = opciones.shuffle     
     s = "#{@text}\n"
+    letras = ('a'..'z').to_a[0..(opciones.size - 1)]
     i = 0
     opciones.each do |o|
-     s += "#{i}) #{o}\n"
+     s += "#{letras[i]}) #{o}\n"
      i += 1
     end
     s

@@ -33,7 +33,7 @@ class Pregunta
         expect(@q).to respond_to :difficulty
       end
       it "mostrarse correctamente" do
-        expect(@q.to_s).to match(/(\d|\w)+\n(\d\)\s+(\w|\d)+\n)+/)
+        expect(@q.to_s).to match(/(\d|\w)+\n(\w\)\s+(\w|\d)+\n)+/)
       end
       it "Debe incluir el modulo comparable" do
         expect(@q).to be_kind_of Comparable
@@ -191,7 +191,7 @@ class PreguntaVerdaderoFalso
         expect(@q).to respond_to :to_s
       end
       it "mostrarse correctamente" do
-        expect(@q.to_s).to match(/(\d|\w)+\n(\d\)\s+(\w|\d)+\n)+/)
+        expect(@q.to_s).to match(/(\d|\w)+\n(\w\)\s+(\w|\d)+\n)+/)
       end
       it "Debe incluir el modulo comparable" do
         expect(@q).to be_kind_of Comparable
