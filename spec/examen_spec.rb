@@ -58,7 +58,7 @@ class Examen
     before :each do
       @q = Pregunta.new(:text => '2+2=', :right => 4 , :distractors => [9,3,5])
       @n = Nodo.new(@q, nil, nil)
-      @e = Examen.new(@q)
+      @e = Lista.new(@q)
     end
 
     context "Nodo" do     
@@ -68,7 +68,7 @@ class Examen
          expect(@n.prev)==nil
       end
     end
-    context "List" do
+    context "Lista" do
       it "Se puede extraer el primer elemento de la lista" do
          expect(@e).to respond_to :pop
 	 expect(@e.pop)== @q
@@ -91,13 +91,13 @@ class Examen
       end
 
       it "Debe inicializarse con una pregunta" do
-        expect {Examen.new()}.to raise_error(ArgumentError)
-        expect {Examen.new(Nodo.new(@q, nil, nil))}.to raise_error(TypeError)
+        expect {Lista.new()}.to raise_error(ArgumentError)
+        expect {Lista.new(Nodo.new(@q, nil, nil))}.to raise_error(TypeError)
       end
 
       it "Debe mostrarse correctamente" do
         text = "¿Cuál es la salida del siguiente código Ruby?\nclass Xyz\n\sdef pots\n\s\s@nice\n\send\nend\n\nxyz = Xyz.new\np xyz.pots"
-        examen = Examen.new(Pregunta.new(:text => text, :right =>"nil", :distractors => ["#<Xyz:0xa000208>","0","Ninguna de las anteriores"]))
+        examen = Lista.new(Pregunta.new(:text => text, :right =>"nil", :distractors => ["#<Xyz:0xa000208>","0","Ninguna de las anteriores"]))
 
         text = "La siguiente definición de un hash en Ruby es válida:\nhash_raro = {\n\s[1, 2, 3] => Object.new(),\nHash.new => :toto\n}"
         examen << PreguntaVerdaderoFalso.new(:text => text, :right => false)

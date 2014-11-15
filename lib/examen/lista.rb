@@ -3,7 +3,7 @@ require "pregunta_verdadero_falso"
  
 Nodo = Struct.new :value, :next, :prev
 
-class Examen
+class Lista
   attr_accessor :cabeza, :cola, :total
   
   include Enumerable
