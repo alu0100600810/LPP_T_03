@@ -1,7 +1,7 @@
 # coding: utf-8
 require "lista"
 
-class Examen
+class Exam
   attr_accessor :list
    
   def initialize(p)

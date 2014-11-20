@@ -150,9 +150,9 @@ class Examen
       end
     end
 
-    context "Examen" do
+    context "Exam" do
        before :each do
-         @e = Examen.new(@q)
+         @e = Exam.new(@q)
        end
 
        it "Debe tener un atributo lista" do
@@ -178,25 +178,29 @@ class Examen
       end
 
       it "Debe inicializarse con una pregunta" do
-        expect {Examen.new()}.to raise_error(ArgumentError)
-        expect {Examen.new(Nodo.new(@q, nil, nil))}.to raise_error(TypeError)
+        expect {Exam.new()}.to raise_error(ArgumentError)
+        expect {Exam.new(Nodo.new(@q, nil, nil))}.to raise_error(TypeError)
       end
     end
-
-    context "ExamenIU" do
-       before :each do
-         @eiu = ExamenIU.new(@q)
-       end
-     it "Debe tener un atributo examen" do
-        expect(@eiu).to respond_to :exam
-     end
-     it "Debe inicializarse con una pregunta" do
-        expect {ExamenIU.new()}.to raise_error(ArgumentError)
-        expect {ExamenIU.new(Nodo.new(@q, nil, nil))}.to raise_error(TypeError)
-     end
-
-    end 	
   end  		
+end
+
+class ExamenIu
+  describe ExamenIu do
+    before :each do
+      @q = Pregunta.new(:text => "2+2=", :right => 4, :distractors => [1, 2, 3])
+      @i = ExamenIu.new(@q)
+    end
+    context "ExamenIu" do
+      it "Debe tener un atributo examen" do
+        expect(@i).to respond_to :exam
+      end
+      it "Debe inicializarse con una pregunta" do
+        expect {ExamenIu.new()}.to raise_error(ArgumentError)
+        expect {ExamenIu.new(Nodo.new(@q, nil, nil))}.to raise_error(TypeError)
+      end
+    end
+  end
 end
 
 
