@@ -155,8 +155,12 @@ class Examen
           @e = Examen.new(@q)
           expect(@e).to respond_to :list
        end
-
-
+       it "Debe mostrar por pantalla el examen" do
+        expect(@e).to respond_to :to_s
+      end
+      it "Debe mostrarse correctamente el examen" do
+        expect(@e.to_s).to match(/(\d|\w)+\n(\w\)\s+(\w|\d)+\n)+/)
+      end
     end 	
   end  		
 end
