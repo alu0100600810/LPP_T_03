@@ -1,5 +1,6 @@
-Desarrollo de gema Ruby: Gestión de Exámenes
+Desarrollo de gema Ruby: Gestión de Exámenes 
 =======================
+[![Coverage Status](https://coveralls.io/repos/alu0100600810/LPP_T_03/badge.png?branch=desarrollo)](https://coveralls.io/r/alu0100600810/LPP_T_03?branch=master)
 
 ## Descripción del equipo
 
