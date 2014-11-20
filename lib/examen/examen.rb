@@ -12,4 +12,13 @@ class Examen
     "#{@list}"
   end
 
+  def <<(p)    
+     @list << p
+  end 
+
+  def push_back(*preguntas)
+    preguntas.each { |p| @list << p}
+    preguntas
+  end 
+
 end
