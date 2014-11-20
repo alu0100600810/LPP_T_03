@@ -33,7 +33,7 @@ class Pregunta
         expect(@q).to respond_to :difficulty
       end
       it "mostrarse correctamente" do
-        expect(@q.to_s).to match(/(\d|\w)+\n(\w\)\s+(\w|\d)+\n)+/)
+        expect(@q.to_s).to match(/.+\n(\w\)\s+(\w|\d)+\n)+/)
       end
       it "Debe incluir el modulo comparable" do
         expect(@q).to be_kind_of Comparable
@@ -69,6 +69,7 @@ class Examen
          expect(@n.prev)==nil
       end
     end
+
     context "Lista" do
       it "Se puede extraer el primer elemento de la lista" do
          expect(@l).to respond_to :pop
@@ -150,17 +151,19 @@ class Examen
     end
 
     context "Examen" do
+       before :each do
+         @e = Examen.new(@q)
+       end
 
        it "Debe tener un atributo lista" do
-          @e = Examen.new(@q)
           expect(@e).to respond_to :list
        end
        it "Debe mostrar por pantalla el examen" do
-        expect(@e).to respond_to :to_s
-      end
-      it "Debe mostrarse correctamente el examen" do
-        expect(@e.to_s).to match(/(\d|\w)+\n(\w\)\s+(\w|\d)+\n)+/)
-      end
+	  expect(@e).to respond_to :to_s
+       end
+       it "Debe mostrarse correctamente el examen" do
+          expect(@e.to_s).to match(/(\d+\.-\)(.|\s|\n)+)+/)
+       end
     end 	
   end  		
 end
