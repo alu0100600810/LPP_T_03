@@ -181,6 +181,20 @@ class Examen
         expect {Examen.new()}.to raise_error(ArgumentError)
         expect {Examen.new(Nodo.new(@q, nil, nil))}.to raise_error(TypeError)
       end
+    end
+
+    context "ExamenIU" do
+       before :each do
+         @eiu = ExamenIU.new(@q)
+       end
+     it "Debe tener un atributo examen" do
+        expect(@eiu).to respond_to :exam
+     end
+     it "Debe inicializarse con una pregunta" do
+        expect {ExamenIU.new()}.to raise_error(ArgumentError)
+        expect {ExamenIU.new(Nodo.new(@q, nil, nil))}.to raise_error(TypeError)
+     end
+
     end 	
   end  		
 end
