@@ -164,6 +164,23 @@ class Examen
        it "Debe mostrarse correctamente el examen" do
           expect(@e.to_s).to match(/(\d+\.-\)(.|\s|\n)+)+/)
        end
+
+       it "Se puede insertar un elemento" do
+         expect(@e).to respond_to :<<
+         expect {@e << @n}.to raise_error(TypeError)
+         expect {@e << @e}.to raise_error(TypeError)
+         expect {@e << @q}==@q
+
+      end
+      it "Se puede insertar varios elementos" do
+         expect(@e).to respond_to :push_back
+         expect(@e.push_back(@q, @q)).to be_instance_of(Array)
+      end
+
+      it "Debe inicializarse con una pregunta" do
+        expect {Examen.new()}.to raise_error(ArgumentError)
+        expect {Examen.new(Nodo.new(@q, nil, nil))}.to raise_error(TypeError)
+      end
     end 	
   end  		
 end
