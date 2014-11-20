@@ -199,6 +199,9 @@ class ExamenIu
         expect {ExamenIu.new()}.to raise_error(ArgumentError)
         expect {ExamenIu.new(Nodo.new(@q, nil, nil))}.to raise_error(TypeError)
       end
+      it "Debe tener un metodo test" do
+        expect(@i).to respond_to :test
+      end
     end
   end
 end
