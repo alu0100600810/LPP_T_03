@@ -58,7 +58,8 @@ class Examen
     before :each do
       @q = Pregunta.new(:text => '2+2=', :right => 4 , :distractors => [9,3,5])
       @n = Nodo.new(@q, nil, nil)
-      @e = Lista.new(@q)
+      @l = Lista.new(@q)
+   
     end
 
     context "Nodo" do     
@@ -70,24 +71,24 @@ class Examen
     end
     context "Lista" do
       it "Se puede extraer el primer elemento de la lista" do
-         expect(@e).to respond_to :pop
-	 expect(@e.pop)== @q
+         expect(@l).to respond_to :pop
+	 expect(@l.pop)== @q
 
       end
       it "Se puede insertar un elemento" do 
-         expect(@e).to respond_to :<<
-         expect {@e << @n}.to raise_error(TypeError)
-         expect {@e << @e}.to raise_error(TypeError)
-         expect {@e << @q}==@q
+         expect(@l).to respond_to :<<
+         expect {@l << @n}.to raise_error(TypeError)
+         expect {@l << @l}.to raise_error(TypeError)
+         expect {@l << @q}==@q
 
       end
       it "Se puede insertar varios elementos" do
-         expect(@e).to respond_to :push_back
-         expect(@e.push_back(@q, @q)).to be_instance_of(Array)
+         expect(@l).to respond_to :push_back
+         expect(@l.push_back(@q, @q)).to be_instance_of(Array)
       end
 
       it "Debe existir una lista con su cabeza" do
-	 expect(@e).to respond_to :cabeza
+	 expect(@l).to respond_to :cabeza
       end
 
       it "Debe inicializarse con una pregunta" do
@@ -114,38 +115,48 @@ class Examen
         expect(examen.to_s).to match(/(\d+\.-\)(.|\s|\n)+)+/)
       end
       it "Debe incluir el modulo enumerable" do
-        expect(@e).to be_kind_of Enumerable
+        expect(@l).to be_kind_of Enumerable
       end
       it "Debe ordenar correctamente" do
        p = PreguntaVerdaderoFalso.new(:text => "¿2+2=4?", :right => true, :difficulty => 0)
-       @e << p
-       expect(@e.sort).to eq([p, @q])
+       @l << p
+       expect(@l.sort).to eq([p, @q])
       end
       it "Debe indicar el maximo" do
        p = PreguntaVerdaderoFalso.new(:text => "¿2+2=4?", :right => true, :difficulty => 0)
-       @e << p
-       expect(@e.max).to eq(@q)
+       @l << p
+       expect(@l.max).to eq(@q)
       end
       it "Debe indicar el minimo" do
        p = PreguntaVerdaderoFalso.new(:text => "¿2+2=4?", :right => true, :difficulty => 0)
-       @e << p
-       expect(@e.min).to eq(p)
+       @l << p
+       expect(@l.min).to eq(p)
       end
       it "Debe saber usar all?" do
        p = PreguntaVerdaderoFalso.new(:text => "¿2+2=4?", :right => true, :difficulty => 0)
-       @e << p
-       expect(@e.all?{|x| x.difficulty > 0}).to eq(false)
+       @l << p
+       expect(@l.all?{|x| x.difficulty > 0}).to eq(false)
       end
       it "Debe saber contar" do
        p = PreguntaVerdaderoFalso.new(:text => "¿2+2=4?", :right => true, :difficulty => 0)
-       @e << p
-       expect(@e.count(p))==1
+       @l << p
+       expect(@l.count(p))==1
       end
       it "Debe encontrar correctamente" do
        p = PreguntaVerdaderoFalso.new(:text => "¿2+2=4?", :right => true, :difficulty => 0)
-       @e << p
-       expect(@e.find{|x| x.difficulty == 1}).to eq(@q)
+       @l << p
+       expect(@l.find{|x| x.difficulty == 1}).to eq(@q)
       end
+    end
+
+    context "Examen" do
+
+       it "Debe tener un atributo lista" do
+          @e = Examen.new(@q)
+          expect(@e).to respond_to :list
+       end
+
+
     end 	
   end  		
 end
@@ -205,7 +216,6 @@ class PreguntaVerdaderoFalso
         expect(@q >= p).to eq(false)
       end
     end
-
-
   end
 end
+
