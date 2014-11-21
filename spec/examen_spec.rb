@@ -201,6 +201,10 @@ class ExamenIu
       end
       it "Debe tener un metodo test" do
         expect(@i).to respond_to :test
+        expect(@i.test([4])).to eq([1])
+	expect(@i.test([3])).to eq([0])
+	@i.exam << @q
+	expect(@i.test([4, 3])).to eq([1, 0])	
       end
     end
   end
