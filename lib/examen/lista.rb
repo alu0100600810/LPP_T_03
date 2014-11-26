@@ -69,11 +69,20 @@ class Lista
     end
   end
 
-  def inv
-  end
+  def inv(&block)
+    block = ->(x) {true} if !block_given?
+    list = invertir(@cabeza, &block)
+    list.pop
+    return nil if list.total == 0
+    list
+  end 
 
-  def invertir
-  end
+  def invertir(actual, &block)
+    return Lista.new(Pregunta.new(:text => "dummy", :right => "dummy", :distractors => ["dummy"])) if (actual == nil)
+    list = invertir(actual.next, &block)
+    list << actual.value if block[actual.value]
+    list    
+  end 
 
   private :invertir
 

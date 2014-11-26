@@ -159,10 +159,10 @@ class Examen
         @l << pp
         ll = Lista.new(pp)
         ll << @q
-        expect(@l.inv).to eq(ll)
-        expect(@l.inv {|p| p.difficulty > 3}).to eq(nil)
+        expect(@l.inv)== ll
+        expect(@l.inv {|p| p.difficulty > 3})== nil
         ll.pop
-        expect(@l.inv {|p| p.difficulty == 3}).to eq(Lista.new @q)
+        expect(@l.inv {|p| p.difficulty == 3})== Lista.new(@q)
       end
     end
 
