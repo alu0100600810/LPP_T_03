@@ -69,4 +69,12 @@ class Lista
     end
   end
 
+  def inv
+  end
+
+  def invertir
+  end
+
+  private :invertir
+
 end
