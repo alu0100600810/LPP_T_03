@@ -113,6 +113,8 @@
 
   <section class="description">
     
+<p>Clase gestora de <a href="Lista.html">Lista</a> doblemente enlazada.</p>
+
   </section>
 
   
@@ -194,13 +196,14 @@
 
         <div class="method-description">
           
-          
+          <p>Instancia de la clase <a href="Lista.html">Lista</a> a partir de una <a
+href="Pregunta.html">Pregunta</a>.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 10</span>
+            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">p</span>)
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;Esperada pregunta como parámetro de entrada&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">is_a?</span> (<span class="ruby-constant">Pregunta</span>)
   <span class="ruby-ivar">@cabeza</span> = <span class="ruby-constant">Nodo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">p</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>)
@@ -238,13 +241,14 @@
 
         <div class="method-description">
           
-          
+          <p>Sobrecarga del operador &lt;&lt; para insertar una pregunta al final de la
+lista.</p>
           
           
 
           
           <div class="method-source-code" id="3C-3C-source">
-            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 34</span>
+            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;&lt;</span>(<span class="ruby-identifier">p</span>)    
    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;Esperada pregunta para inserción&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">is_a?</span> (<span class="ruby-constant">Pregunta</span>) 
    <span class="ruby-ivar">@cola</span>.<span class="ruby-identifier">next</span> = <span class="ruby-constant">Nodo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">p</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-ivar">@cola</span>)
@@ -275,13 +279,14 @@
 
         <div class="method-description">
           
-          
+          <p>Definición del método :each para el manejo de métodos del módulo
+Enumerable.</p>
           
           
 
           
           <div class="method-source-code" id="each-source">
-            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 63</span>
+            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 70</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">each</span>
   <span class="ruby-identifier">aux</span> = <span class="ruby-ivar">@cabeza</span>
   <span class="ruby-keyword">while</span> (<span class="ruby-identifier">aux</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>) <span class="ruby-keyword">do</span>
@@ -312,13 +317,13 @@
 
         <div class="method-description">
           
-          
+          <p>Devuelve la lista actual invertida.</p>
           
           
 
           
           <div class="method-source-code" id="inv-source">
-            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 71</span>
+            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">inv</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-identifier">block</span> = <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span>(<span class="ruby-identifier">x</span>) {<span class="ruby-keyword">true</span>} <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">block_given?</span>
   <span class="ruby-identifier">list</span> = <span class="ruby-identifier">invertir</span>(<span class="ruby-ivar">@cabeza</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
@@ -349,13 +354,14 @@
 
         <div class="method-description">
           
-          
+          <p>Extrae la cabeza de la lista actualmente. Si la lista está vacía genera una
+excepción (IndexError).</p>
           
           
 
           
           <div class="method-source-code" id="pop-source">
-            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 17</span>
+            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 20</span>
  <span class="ruby-keyword">def</span> <span class="ruby-identifier">pop</span>
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">IndexError</span>, <span class="ruby-string">&quot;Lista vacía, imposible hacer pop&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@total</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
   <span class="ruby-identifier">head</span> = <span class="ruby-keyword">nil</span>
@@ -395,13 +401,13 @@
 
         <div class="method-description">
           
-          
+          <p>Inserta una o varias preguntas sucesivamente.</p>
           
           
 
           
           <div class="method-source-code" id="push_back-source">
-            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 42</span>
+            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">push_back</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">preguntas</span>)
   <span class="ruby-identifier">preguntas</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@cola</span>.<span class="ruby-identifier">next</span> = <span class="ruby-constant">Nodo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">p</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-ivar">@cola</span>)
@@ -433,14 +439,15 @@
 
         <div class="method-description">
           
-          
+          <p>Definición del Metotodo <a href="Lista.html#method-i-to_s">#to_s</a>, para
+la clase <a href="Lista.html">Lista</a>.</p>
           
           
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 51</span>
- <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
   <span class="ruby-identifier">aux</span> = <span class="ruby-ivar">@cabeza</span>
   <span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;&#39;</span>
   <span class="ruby-identifier">i</span> = <span class="ruby-value">1</span>
@@ -482,13 +489,13 @@
 
         <div class="method-description">
           
-          
+          <p>Método auxiliar utilizado para invertir la lista mediante recursividad.</p>
           
           
 
           
           <div class="method-source-code" id="invertir-source">
-            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 79</span>
+            <pre><span class="ruby-comment"># File lib/examen/lista.rb, line 88</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">invertir</span>(<span class="ruby-identifier">actual</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-constant">Lista</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Pregunta</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummy&quot;</span>, <span class="ruby-value">:right</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;dummy&quot;</span>, <span class="ruby-value">:distractors</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&quot;dummy&quot;</span>])) <span class="ruby-keyword">if</span> (<span class="ruby-identifier">actual</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">list</span> = <span class="ruby-identifier">invertir</span>(<span class="ruby-identifier">actual</span>.<span class="ruby-identifier">next</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)

@@ -105,6 +105,9 @@
 
   <section class="description">
     
+<p>Clase gestora de una <a href="Pregunta.html">Pregunta</a> de multiples
+opciones.</p>
+
   </section>
 
   
@@ -199,13 +202,15 @@
 
         <div class="method-description">
           
-          
+          <p>Instancia una nueva <a href="Pregunta.html">Pregunta</a>, a partir de un
+texto, una respuesta correcta, un conjunto de respuestas falsas y
+opcionalmente la dificultad.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/examen/pregunta.rb, line 6</span>
+            <pre><span class="ruby-comment"># File lib/examen/pregunta.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">args</span>)
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Esperada pregunta (:text)&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">:text</span>]
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Esperada respuesta correcta (:right)&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">:right</span>]
@@ -246,13 +251,13 @@
 
         <div class="method-description">
           
-          
+          <p>Sobrecarga el operador &lt;=&gt; para comparar por dificultad.</p>
           
           
 
           
           <div class="method-source-code" id="3C-3D-3E-source">
-            <pre><span class="ruby-comment"># File lib/examen/pregunta.rb, line 29</span>
+            <pre><span class="ruby-comment"># File lib/examen/pregunta.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;=&gt;</span>(<span class="ruby-identifier">p</span>)
   <span class="ruby-ivar">@difficulty</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">difficulty</span>
 <span class="ruby-keyword">end</span></pre>
@@ -279,13 +284,13 @@
 
         <div class="method-description">
           
-          
+          <p>Sobrecarga el operador == para comparar por el texto.</p>
           
           
 
           
           <div class="method-source-code" id="3D-3D-source">
-            <pre><span class="ruby-comment"># File lib/examen/pregunta.rb, line 33</span>
+            <pre><span class="ruby-comment"># File lib/examen/pregunta.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">p</span>)
   <span class="ruby-ivar">@text</span>.<span class="ruby-identifier">eql?</span><span class="ruby-identifier">p</span>.<span class="ruby-identifier">text</span>
 <span class="ruby-keyword">end</span></pre>
@@ -312,13 +317,14 @@
 
         <div class="method-description">
           
-          
+          <p>Definición del Metodo <a href="Pregunta.html#method-i-to_s">#to_s</a> para
+mostrar una pregunta.</p>
           
           
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/examen/pregunta.rb, line 16</span>
+            <pre><span class="ruby-comment"># File lib/examen/pregunta.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
   <span class="ruby-identifier">opciones</span> = <span class="ruby-ivar">@distractors</span> <span class="ruby-operator">+</span> [<span class="ruby-ivar">@right</span>]
   <span class="ruby-identifier">opciones</span> = <span class="ruby-identifier">opciones</span>.<span class="ruby-identifier">shuffle</span>     

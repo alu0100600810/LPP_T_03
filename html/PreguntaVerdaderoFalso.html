@@ -88,6 +88,8 @@
 
   <section class="description">
     
+<p>Clase gestora de preguntas de verdadero y falso.</p>
+
   </section>
 
   
@@ -122,7 +124,9 @@
 
         <div class="method-description">
           
-          
+          <p>Instancia de la clase <a
+href="PreguntaVerdaderoFalso.html">PreguntaVerdaderoFalso</a> donde le
+pasas un texto y un booleano asociado a la respuesta correcta.</p>
           
           
             <div class="method-calls-super">
@@ -133,7 +137,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/examen/pregunta_verdadero_falso.rb, line 5</span>
+            <pre><span class="ruby-comment"># File lib/examen/pregunta_verdadero_falso.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">args</span>)
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Esperada pregunta (:text)&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:text</span>)
   <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Esperada respuesta correcta (:right)&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:right</span>)

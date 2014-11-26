@@ -3,11 +3,13 @@ require "pregunta_verdadero_falso"
  
 Nodo = Struct.new :value, :next, :prev
 
+# Clase gestora de Lista doblemente enlazada.
 class Lista
   attr_accessor :cabeza, :cola, :total
   
   include Enumerable
 
+  # Instancia de la clase Lista a partir de una Pregunta.
   def initialize(p)
     raise TypeError, "Esperada pregunta como parámetro de entrada" unless p.is_a? (Pregunta)
     @cabeza = Nodo.new(p, nil, nil)
@@ -15,6 +17,7 @@ class Lista
     @total = 1
   end
 
+   # Extrae la cabeza de la lista actualmente. Si la lista está vacía genera una excepción (IndexError).
    def pop
     raise IndexError, "Lista vacía, imposible hacer pop" unless @total > 0
     head = nil
@@ -32,6 +35,7 @@ class Lista
     head.value
   end
 
+  # Sobrecarga del operador << para insertar una pregunta al final de la lista.
   def <<(p)    
      raise TypeError, "Esperada pregunta para inserción" unless p.is_a? (Pregunta) 
      @cola.next = Nodo.new(p, nil, @cola)
@@ -40,6 +44,7 @@ class Lista
      @cola.value
   end
 
+  # Inserta una o varias preguntas sucesivamente. 
   def push_back(*preguntas)
     preguntas.each do |p|
       @cola.next = Nodo.new(p, nil, @cola)
@@ -49,7 +54,8 @@ class Lista
     preguntas
   end
 
-   def to_s
+  # Definición del Metotodo to_s, para la clase Lista. 
+  def to_s
     aux = @cabeza
     s = ''
     i = 1
@@ -61,6 +67,7 @@ class Lista
     s
   end
   
+  # Definición del método :each para el manejo de métodos del módulo Enumerable.
   def each
     aux = @cabeza
     while (aux != nil) do
@@ -69,6 +76,7 @@ class Lista
     end
   end
 
+  # Devuelve la lista actual invertida.
   def inv(&block)
     block = ->(x) {true} if !block_given?
     list = invertir(@cabeza, &block)
@@ -77,6 +85,7 @@ class Lista
     list
   end 
 
+  # Método auxiliar utilizado para invertir la lista mediante recursividad.
   def invertir(actual, &block)
     return Lista.new(Pregunta.new(:text => "dummy", :right => "dummy", :distractors => ["dummy"])) if (actual == nil)
     list = invertir(actual.next, &block)
