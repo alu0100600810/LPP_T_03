@@ -92,6 +92,8 @@
 
   <section class="description">
     
+<p>Clase gestora de la Interfaz de usuario de la gema.</p>
+
   </section>
 
   
@@ -147,13 +149,13 @@
 
         <div class="method-description">
           
-          
+          <p>Crea una nueva instancia a partir de una pregunta.</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/examen/examen_iu.rb, line 5</span>
+            <pre><span class="ruby-comment"># File lib/examen/examen_iu.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pregunta</span>)
   <span class="ruby-ivar">@exam</span> = <span class="ruby-constant">Exam</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pregunta</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -188,13 +190,14 @@
 
         <div class="method-description">
           
-          
+          <p>Dado un conjunto de respuestas las evalua e indica cuales son correctas y
+cuales no.</p>
           
           
 
           
           <div class="method-source-code" id="test-source">
-            <pre><span class="ruby-comment"># File lib/examen/examen_iu.rb, line 9</span>
+            <pre><span class="ruby-comment"># File lib/examen/examen_iu.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test</span>(<span class="ruby-identifier">resp</span>)
   <span class="ruby-identifier">result</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@exam</span>.<span class="ruby-identifier">list</span>.<span class="ruby-identifier">count</span>, <span class="ruby-value">0</span>)
   <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
@@ -227,13 +230,14 @@
 
         <div class="method-description">
           
-          
+          <p>Muestra la Interfaz de Usuario solicitando por pantalla las respuestas e
+indicando si son correctas o no.</p>
           
           
 
           
           <div class="method-source-code" id="testinteractivo-source">
-            <pre><span class="ruby-comment"># File lib/examen/examen_iu.rb, line 19</span>
+            <pre><span class="ruby-comment"># File lib/examen/examen_iu.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">testinteractivo</span>
   <span class="ruby-identifier">result</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@exam</span>.<span class="ruby-identifier">list</span>.<span class="ruby-identifier">count</span>, <span class="ruby-value">0</span>)
   <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
