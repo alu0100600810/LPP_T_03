@@ -148,6 +148,12 @@ class Examen
        @l << p
        expect(@l.find{|x| x.difficulty == 1}).to eq(@q)
       end
+      it " Debe existir metodo inv" do
+        expect(@l).to respond_to :inv 
+      end
+      it " Debe existir metodo invertir como privado" do
+        expect(@l.private_methods.include? :invertir).to eq(true)
+      end
     end
 
     context "Exam" do
