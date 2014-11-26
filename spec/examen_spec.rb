@@ -154,6 +154,16 @@ class Examen
       it " Debe existir metodo invertir como privado" do
         expect(@l.private_methods.include? :invertir).to eq(true)
       end
+      it "Debe saber invertir la lista" do
+        pp = Pregunta.new(:text => '2+2=', :right => 4 , :distractors => [9,3,5], :difficulty => 3)
+        @l << pp
+        ll = Lista.new(pp)
+        ll << @q
+        expect(@l.inv).to eq(ll)
+        expect(@l.inv {|p| p.difficulty > 3}).to eq(nil)
+        ll.pop
+        expect(@l.inv {|p| p.difficulty == 3}).to eq(Lista.new @q)
+      end
     end
 
     context "Exam" do
