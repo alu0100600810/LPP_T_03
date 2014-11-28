@@ -162,7 +162,7 @@ class Examen
         expect(@l.inv)== ll
         expect(@l.inv {|p| p.difficulty > 3})== nil
         ll.pop
-        expect(@l.inv {|p| p.difficulty == 3})== Lista.new(@q)
+        expect(@l.inv {|p| p.difficulty == 3})== ll
       end
     end
 
