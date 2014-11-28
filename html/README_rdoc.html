@@ -70,6 +70,78 @@
 </nav>
 
 <main role="main" aria-label="Page README.rdoc">
+
+<p>Desarrollo de gema Ruby: Gestión de Exámenes</p>
+
+<h6 id="label-"><span><a href="#label-">&para;</a> <a href="#documentation">&uarr;</a></span></h6>
+
+<p>[![Coverage Status](<a
+href="https://coveralls.io/repos/alu0100600810/LPP_T_03/badge.png?branch=desarrollo)](https://coveralls.io/r/alu0100600810/LPP_T_03?branch=master">coveralls.io/repos/alu0100600810/LPP_T_03/badge.png?branch=desarrollo)](https://coveralls.io/r/alu0100600810/LPP_T_03?branch=master</a>)</p>
+
+<p>## Descripción del equipo</p>
+
+<pre>* Nombre del equipo: **LPP_T_3**
+* Miembros del equipo:
+  * Ayose Jesús Castillo Barroso
+  * César Ravelo Martínez</pre>
+
+<p>## Descripción de la práctica</p>
+
+<pre>La práctica propone implementar una gema Ruby para representar exámenes de preguntas simples con pruebas RSpec para seguir el modelo TDD y su correcto funcionamiento. La estructura del repositorio es la siguiente:
+
+* [Documentación](doc/)
+  * [Documentación de la Práctica](doc/)
+  * [Resultados de las Pruebas](doc/pruebas/index.html)
+* [Librerías](lib/)
+  * [Gema Ruby](lib/examen/base.rb)
+  * [Código fuente de la clase Examen](lib/examen/examen.rb)
+  * [Código fuente de la clase Pregunta](lib/examen/pregunta.rb)
+  * [Códido fuente de la clase Pregunta Verdadero y Falso](lib/examen/pregunta_verdadero_falso.rb)
+* [RSpec](spec/)
+* [Fichero Rake con las tareas necesarias definidas](Rakefile)
+* Fichero readme con esta documentación</pre>
+
+<p># <a href="Examen.html">Examen</a></p>
+
+<p>Gema Ruby para representar exámenes formados por preguntas de selección
+simple. La secuencia de preguntas que pueda formar un examen viene definida
+como una lista enlazada simple definida en la misma clase <a
+href="Examen.html">Examen</a> donde cada nodo representa una instancia de
+la clase <a href="Pregunta.html">Pregunta</a>.</p>
+
+<p>## Instalación</p>
+
+<p>Añadir esta linea al Gemfile de su aplicación</p>
+
+<p>“`ruby gem &#39;examen&#39; “`</p>
+
+<p>y ejecutar:</p>
+
+<pre>$ bundle</pre>
+
+<p>O instálelo usted mismo:</p>
+
+<pre>$ gem install examen</pre>
+
+<p>## Uso</p>
+
+<p>Para instanciar un objeto <a href="Pregunta.html">Pregunta</a> basta con
+indicarle:</p>
+<ul><li>
+<p>Una pregunta</p>
+</li><li>
+<p>Una respuesta correcta</p>
+</li><li>
+<p>Un conjunto de respuestas erróneas</p>
+</li></ul>
+
+<p>Puede mostrar por pantalla la pregunta invocando el método
+[:to_s](lib/examen/pregunta.rb).</p>
+
+<p>Para instanciar un objeto <a href="Examen.html">Examen</a> basta con
+indicarle una instancia de la clase <a href="Pregunta.html">Pregunta</a>.
+Puede mostrar por pantalla la pregunta invocando el método
+[:to_s](lib/examen/examen.rb).</p>
 </main>
 
 
