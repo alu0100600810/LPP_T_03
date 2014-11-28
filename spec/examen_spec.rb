@@ -156,13 +156,10 @@ class Examen
       end
       it "Debe saber invertir la lista" do
         pp = Pregunta.new(:text => '2+2=', :right => 4 , :distractors => [9,3,5], :difficulty => 3)
-        @l << pp
-        ll = Lista.new(pp)
-        ll << @q
-        expect(@l.inv)== ll
-        expect(@l.inv {|p| p.difficulty > 3})== nil
-        ll.pop
-        expect(@l.inv {|p| p.difficulty == 3})== ll
+        @l << pp        
+        expect(@l.inv.pop == pp).to be true
+        expect(@l.inv {|p| p.difficulty > 3} == nil).to be true
+        expect((@l.inv {|p| p.difficulty == 3}).pop).to eq(pp)
       end
     end
 
