@@ -325,6 +325,9 @@ class Quiz
         expect(@q).to respond_to :question
         expect(@q.question("2+2=", @q.right=> "4", @q.wrong=> "5")).to be_instance_of(Exam)
      end
+     it "mostrarse correctamente" do
+        expect(@q.to_s).to match(/\s\s.+\n#+\n\n.+/)
+     end
    end
  end
 end
