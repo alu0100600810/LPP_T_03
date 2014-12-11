@@ -281,3 +281,51 @@ class PreguntaVerdaderoFalso
   end
 end
 
+class Quiz
+ describe Examen do
+   before :each do
+     @q = Quiz.new("Cuestionario LPP 05/12/2014") do
+     
+       question "¿Cuantos argumentos de tipo bloque puede recibir un metodo?",
+          right => "1",
+          wrong => "2",
+          wrong => "muchos",
+          wrong => "los que defina el usuario"
+
+       question "En Ruby los bloques son objetos que contienen codigo",
+          wrong => "Cierto",
+          right => "Falso"
+     end
+   end
+   context "Quiz" do
+
+     it "Debe tener un examen, un contador y un titulo" do
+        expect(@q.title)=="Cuestionario LPP 05/12/2014"
+        expect(@q.count)==2
+        expect(@q.exam.instance_of?Exam).to eq(true)
+     end
+     it "Debe mostrar examen" do
+        expect(@q).to respond_to :exam
+     end
+     it "Debe mostrar cantidad" do
+        expect(@q).to respond_to :count
+     end
+     it "Debe mostrar el titulo" do
+        expect(@q).to respond_to :title
+     end
+     it "Debe generar simbolo right" do
+        expect(@q).to respond_to :right
+        expect(@q.right.instance_of?Symbol).to eq(true) 
+     end
+     it "Debe generar Array como simbolo" do
+        expect(@q).to respond_to :wrong
+        expect(@q.wrong.instance_of?Array).to eq(true)
+     end
+     it "Debe saber leer una pregunta" do
+        expect(@q).to respond_to :question
+        expect(@q.question("2+2=", @q.right=> "4", @q.wrong=> "5")).to be_instance_of(Array)
+     end
+   end
+ end
+end
+
