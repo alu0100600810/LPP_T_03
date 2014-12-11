@@ -36,19 +36,29 @@ class Lista
   end
 
   # Sobrecarga del operador << para insertar una pregunta al final de la lista.
-  def <<(p)    
-     raise TypeError, "Esperada pregunta para inserción" unless p.is_a? (Pregunta) 
-     @cola.next = Nodo.new(p, nil, @cola)
-     @cola = @cola.next    
+  def <<(p)
+     raise TypeError, "Esperada pregunta para inserción" unless p.is_a? (Pregunta)
+     if (@total == 0)
+       @cabeza = Nodo.new(p, nil, nil)
+       @cola = @cabeza
+     else
+       @cola.next = Nodo.new(p, nil, @cola)
+       @cola = @cola.next
+       @cola.value
+     end
      @total += 1
-     @cola.value
   end
 
   # Inserta una o varias preguntas sucesivamente. 
   def push_back(*preguntas)
     preguntas.each do |p|
-      @cola.next = Nodo.new(p, nil, @cola)
-      @cola = @cola.next
+      if (@total == 0)
+        @cabeza = Nodo.new(p, nil, nil)
+        @cola = @cabeza
+      else
+        @cola.next = Nodo.new(p, nil, @cola)
+        @cola = @cola.next
+      end
       @total += 1
     end
     preguntas

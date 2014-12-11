@@ -323,7 +323,7 @@ class Quiz
      end
      it "Debe saber leer una pregunta" do
         expect(@q).to respond_to :question
-        expect(@q.question("2+2=", @q.right=> "4", @q.wrong=> "5")).to be_instance_of(Array)
+        expect(@q.question("2+2=", @q.right=> "4", @q.wrong=> "5")).to be_instance_of(Exam)
      end
    end
  end
