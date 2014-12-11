@@ -27,4 +27,9 @@ class Quiz
     exam << Pregunta.new(:text => args[0], :right => args[1][:right], :distractors => distract)
     exam
   end 
+
+  def to_s
+    "\s\s#{@title}\n#{'#' * (@title.size + 4)}\n\n#{@exam}"
+  end
+
 end
